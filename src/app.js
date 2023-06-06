@@ -1,10 +1,20 @@
-import express, { json} from "express"
+import express from "express";
+import environment from "./config/environment.js";
+
+
+const { PORT } = environment
 
 const app = express()
-app.use(json())
+app.use( express.json())
 
 app.get("/", function(req,res){
-    return res.send({"msg": "hola mundo"})
+    return res.send( "hola mundo")
 })
 
-app.listen(3000)
+// rutas de los recursos
+
+app.use(productsRouter)
+
+app.listen(PORT, () => {
+    console.log (´APLICACION INICIARA EN EL PUERTO ${PORT}´)
+})
