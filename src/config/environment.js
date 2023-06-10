@@ -4,4 +4,6 @@ import * as dotenv from "dotenv"
 dotenv.config()
 
 export default {
-    PORT: process.env PORT || 4500
+    PORT: process.env.PORT || 4500,
+    DB_CONEXION: process.env.DB_CONEXION
+}
