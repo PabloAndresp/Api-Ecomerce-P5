@@ -3,13 +3,13 @@ import environment from "./environment.js";
 
 mongoose.set( "strictQuery", false)
 
-const mongoConexionString = environment.DB_CONEXION_STRING
+const mongoConnectionString = environment.DB_CONNECTION_STRING
 
-export const startConnection = ()=> {
-    mongoose.connect( mongoConexionString).then( () => console.log ("Conexion a la base MONGO fue exitosa"))
+export const startConnection = async ()=> {
+    mongoose.connect( mongoConnectionString).then( () => console.log ("Conexion a la base MONGO fue exitosa"))
     .catch( error => console.error( error))
 }
 
-const db = mongoose.connect
+const db = mongoose.connection
 
 export default db
